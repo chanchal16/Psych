@@ -1,0 +1,25 @@
+h1{
+    color: var(--primary);
+    font-family: var(--font);
+}
+.card{
+    max-width: 300px;
+    margin: auto;
+}
+.categories-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem ; 
+    padding: 2rem;
+}
+
+/* overlay */
+.overlay{
+    background-color: transparent;
+    top: 10rem;
+}
+.overlay-text{
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
