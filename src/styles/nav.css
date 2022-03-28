@@ -1,0 +1,19 @@
+.navbars{
+    background-color: var(--black);
+    padding: 0 0.25rem;
+}
+.brand-name,.icon-links,.acount{
+    font-family: var(--font);
+    color: var(--primary-light);
+}
+.brand-name:hover,
+.list-items a:hover{
+    color: var(--primary);
+}
+.menu-icon{
+    padding: 0;
+}
+.list-items{
+    vertical-align: middle;
+    margin:0 0.8rem;
+}
