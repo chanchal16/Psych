@@ -1,0 +1,9 @@
+:root{
+    --black:#1a1615;
+    --primary-light:#a5b4fc;
+    --primary:#6366f1;
+    --primary-dark:#4338ca;
+    --dark:#292524;
+    /* font */
+    --font:'Chewy', cursive;
+}
