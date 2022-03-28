@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/categories.css';
-import { categories } from '../Utils/Data';
+import { categories } from '../Utils/categories-data';
 
 export function Categories() {
    
