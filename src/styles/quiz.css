@@ -1,0 +1,30 @@
+.ques-container{
+    height: 100vh;
+}
+/* heading */
+.ques-heading{
+    display:  flex;
+    justify-content: space-between;
+    padding: 1rem;
+    font-family: var(--font);
+}
+/* question div */
+.question-div{
+    margin: auto;
+    padding: 2rem;
+}
+.question-div p{
+    padding: 1rem;
+}
+/* options */
+.stacked-list-item{
+    background-color: var(--primary-light);
+    margin: 0.8rem;
+}
+.correct{
+    background-color: var(--success);
+}
+.wrong{
+    background-color: var(--danger);
+    color: white;
+}

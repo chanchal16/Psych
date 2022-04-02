@@ -1,2 +1,3 @@
 export {Categories} from './Categories';
-export {Rules} from './Rules'
+export {Rules} from './Rules';
+export {Questions} from './Questions'
