@@ -4,11 +4,10 @@ import '../styles/quiz.css';
 import { decodeHTML } from '../Utils/decode';
 
 export function Questions() {
-  const {questionsState,questionsDispatch} = useQuestions()
+  const {questionsState,questionsDispatch,questions,setQuestions} = useQuestions()
   const{index,score,selectedOption} = questionsState
-   const[options,setOptions] = useState([]);
-  const[questions,setQuestions] = useState([])
-
+  const[options,setOptions] = useState([]);
+  
   // decode html sent from api
   const encodedQuestions = questionsState.questions;
   useEffect(() => {
@@ -20,8 +19,7 @@ export function Questions() {
         incorrect_answers: q.incorrect_answers.map(a => decodeHTML(a))
       }
     })
-  setQuestions(decodedQuestions)
-   
+    setQuestions(decodedQuestions)  
   }, [encodedQuestions])
   
 

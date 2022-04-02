@@ -11,6 +11,7 @@ function QuestionsContextProvider({children}) {
       index:0,
       score:0})
     const [categoryId,setCategoryId] = useState(null);
+    const[questions,setQuestions] = useState([])
 
     const fetchQuestionsHandler = async(id)=>{
       try{
@@ -24,7 +25,7 @@ function QuestionsContextProvider({children}) {
       }           
     }
    
-  const providerObj = {categoryId,questionsDispatch,questionsState,fetchQuestionsHandler}
+  const providerObj = {categoryId,questions,setQuestions,questionsDispatch,questionsState,fetchQuestionsHandler}
   return (
     <div>
         <QuestionsContext.Provider value={providerObj}>
