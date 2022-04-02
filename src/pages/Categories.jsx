@@ -6,11 +6,11 @@ import { categories } from '../Utils/categories-data';
 
 
 export function Categories() {
-  const {questionsState,categoryId,fetchQuestionsHandler} = useQuestions()
+  const {quizState,categoryId,fetchQuestionsHandler} = useQuestions()
 
   useEffect(async() => {
     await fetchQuestionsHandler(categoryId)
-    console.log('questionstate',questionsState)
+    console.log('questionstate',quizState)
     
   }, [categoryId])
 

@@ -4,12 +4,12 @@ import '../styles/quiz.css';
 import { decodeHTML } from '../Utils/decode';
 
 export function Questions() {
-  const {questionsState,questionsDispatch,questions,setQuestions} = useQuestions()
-  const{index,score,selectedOption} = questionsState
+  const {quizState,quizDispatch,questions,setQuestions} = useQuestions()
+  const{index,score,selectedOption} = quizState
   const[options,setOptions] = useState([]);
   
   // decode html sent from api
-  const encodedQuestions = questionsState.questions;
+  const encodedQuestions = quizState.questions;
   useEffect(() => {
     const decodedQuestions = encodedQuestions.map(q => {
       return {
@@ -42,10 +42,10 @@ export function Questions() {
 
   const handleNextQuestion = (option)=>{
     setTimeout(() => {
-      questionsDispatch({type:'GET_INDEX'});
+      quizDispatch({type:'GET_INDEX'});
     }, 1000);
     
-      questionsDispatch({type:'GET_SCORE',payload:option})
+      quizDispatch({type:'GET_SCORE',payload:option})
       console.log('score',score)
   }
 

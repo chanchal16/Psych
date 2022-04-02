@@ -1,11 +1,11 @@
 import React,{useState,createContext,useContext,useReducer} from 'react';
 import axios from 'axios';
-import { questionsReducer } from '../reducers/questionsReducer';
+import { quizReducer } from '../reducers/quizReducer';
 
 const QuestionsContext = createContext()
 
 function QuestionsContextProvider({children}) {
-    const [questionsState,questionsDispatch] = useReducer(questionsReducer,{
+    const [quizState,quizDispatch] = useReducer(quizReducer,{
       questions:[],
       selectedOption:'',
       index:0,
@@ -17,7 +17,7 @@ function QuestionsContextProvider({children}) {
       try{
         await axios.get('https://opentdb.com/api.php?amount=10&category='+id)
         .then(res=>{
-          questionsDispatch({type:'GET_QUESTIONS',payload:res.data.results})
+          quizDispatch({type:'GET_QUESTIONS',payload:res.data.results})
           setCategoryId(id);
         })   
       }catch(err){
@@ -25,7 +25,7 @@ function QuestionsContextProvider({children}) {
       }           
     }
    
-  const providerObj = {categoryId,questions,setQuestions,questionsDispatch,questionsState,fetchQuestionsHandler}
+  const providerObj = {categoryId,questions,setQuestions,quizDispatch,quizState,fetchQuestionsHandler}
   return (
     <div>
         <QuestionsContext.Provider value={providerObj}>

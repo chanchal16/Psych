@@ -1,4 +1,4 @@
-const questionsReducer = (state,{type,payload})=>{
+const quizReducer = (state,{type,payload})=>{
     switch(type){
         case 'GET_QUESTIONS':
             return {...state,questions:payload};
@@ -18,4 +18,4 @@ const questionsReducer = (state,{type,payload})=>{
             return state
     }
 }
-export {questionsReducer}
+export {quizReducer}
