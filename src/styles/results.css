@@ -1,0 +1,24 @@
+.result-container h4{
+    font-family: var(--font);
+}
+.result-summary{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 1rem;
+    font-family: var(--body-font);
+}
+.result-card{
+    padding: 1rem;
+    width: 70%;
+}
+.option{
+    margin: 0.8rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+.score{
+    color: var(--primary);
+}
