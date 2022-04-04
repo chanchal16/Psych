@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import './styles/variables.css';
+@import './styles/categories.css';
 
 *,
 *:before,
@@ -17,4 +18,40 @@
 main{
   flex-grow: 1; 
 }
+/* homepage */
+.banner{
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
+  font-family: var(--font);
+  background-color: var(--primary-light);
+  padding: 4rem 0;
+}
 
+.img-div{
+  width: 450px;
+  padding: 1rem;
+  margin: 0 1rem;
+}
+.heading-div{
+  padding: 1rem;
+  width: 600px;
+  margin: 1rem;
+}
+.explore-btn{
+  background-color: var(--primary);
+}
+.explore-btn:hover{
+  background-color: var(--accent);
+}
+.arrow{
+  vertical-align: middle;
+}
+/* most played */
+.most-played{
+  padding: 2rem;
+}
+.most-played h6{
+  font-family: var(--font);
+  color: var(--primary);
+}
