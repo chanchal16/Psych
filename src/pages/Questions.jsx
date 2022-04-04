@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { useQuestions } from '../contexts/QuestionsContext';
 import '../styles/quiz.css';
 import { decodeHTML } from '../Utils/decode';
+import { Link } from 'react-router-dom';
 
 export function Questions() {
   const {quizState,quizDispatch,questions,setQuestions} = useQuestions()
@@ -34,19 +35,22 @@ export function Questions() {
        answers = [...questions[index]?.incorrect_answers];
       answers.splice(getRandomInt(questions[index]?.incorrect_answers.length), 0, questions[index]?.correct_answer)
       setOptions(answers);
-      console.log('optns',options)
       }else{
         answers = []
       }   
   }
 
   const handleNextQuestion = (option)=>{
-    setTimeout(() => {
-      quizDispatch({type:'GET_INDEX'});
-    }, 1000);
-    
-      quizDispatch({type:'GET_SCORE',payload:option})
-      console.log('score',score)
+    quizDispatch({type:'GET_SCORE',payload:option})
+    // increase index if less than Qs length
+    if(index +1 < questions?.length){
+      setTimeout(() => {
+        quizDispatch({type:'GET_INDEX' ,payload:{
+          ques:questions[index]?.question,
+          answer: option
+        }});
+      }, 1000);
+    }
   }
 
    useEffect(() => {
@@ -64,7 +68,18 @@ export function Questions() {
        return 'correct'
      }
    }
-       
+
+  const saveResults = ()=>{
+    if(index +1 <= questions?.length){
+      quizDispatch({
+        type:'GET_RESULTS',
+        payload:{
+          ques:questions[index]?.question,
+          answer: selectedOption
+        }
+      })
+    }
+  }
   return (
     <div className='ques-container'>
       <div className='ques-heading'>
@@ -84,6 +99,14 @@ export function Questions() {
               ))
             }
           </ul>
+          {index >= questions?.length -1 ? (
+            <Link to='/results'>
+              <button className='button primary-btn save' onClick={()=>saveResults()}>
+                Save 
+              </button>
+            </Link> 
+            ):null
+          }         
         </div>
       }
     </div>

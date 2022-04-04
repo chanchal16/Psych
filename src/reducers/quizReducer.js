@@ -6,7 +6,8 @@ const quizReducer = (state,{type,payload})=>{
             return {
                 ...state,
                 selectedOption:'',
-                index:state.index <= 9 && state.index +1
+                index:state.index < 9 && state.index +1,
+                results:[...state.results,{ques:payload?.ques,answer:payload?.answer}]
             };
         case 'GET_SCORE':
             return {
@@ -14,6 +15,8 @@ const quizReducer = (state,{type,payload})=>{
                 selectedOption:payload,
                 score:payload === state.questions[state.index]?.correct_answer ? state.score + 10 :state.score
             };
+        case 'GET_RESULTS':
+            return{...state, results:[...state.results,{ques:payload?.ques,answer:payload?.answer}]}
         default:
             return state
     }

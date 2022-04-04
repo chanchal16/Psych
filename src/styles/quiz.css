@@ -5,7 +5,7 @@
 .ques-heading{
     display:  flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1rem 3rem;
     font-family: var(--font);
 }
 /* question div */
@@ -23,8 +23,12 @@
 }
 .correct{
     background-color: var(--success);
+    color: white;
 }
 .wrong{
     background-color: var(--danger);
     color: white;
+}
+.save{
+    margin-left: 84%;
 }

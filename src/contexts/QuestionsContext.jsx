@@ -9,7 +9,8 @@ function QuestionsContextProvider({children}) {
       questions:[],
       selectedOption:'',
       index:0,
-      score:0})
+      score:0,
+      results:[]})
     const [categoryId,setCategoryId] = useState(null);
     const[questions,setQuestions] = useState([])
 

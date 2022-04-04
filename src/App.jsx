@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import {Navbar,Footer} from './components'
-import { Categories,Rules,Questions } from './pages';
+import { Categories,Rules,Questions, Results } from './pages';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
           <Route path='/' element={<Categories/>} />
           <Route path='rules' element={<Rules/>}/>
           <Route path='questions' element={<Questions/>}/>
+          <Route path='results' element={<Results/>}/>
         </Routes>       
       </main>
       <Footer/>

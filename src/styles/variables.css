@@ -4,6 +4,9 @@
     --primary:#6366f1;
     --primary-dark:#4338ca;
     --dark:#292524;
+    --success: #5fc062; 
+    --danger:#f74c40; 
     /* font */
     --font:'Chewy', cursive;
+    --body-font: 'Open Sans', sans-serif;
 }
