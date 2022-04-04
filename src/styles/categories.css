@@ -3,7 +3,7 @@ h1{
     font-family: var(--font);
 }
 .card{
-    max-width: 300px;
+    min-width: 300px;
     margin: auto;
 }
 .categories-container{
@@ -13,13 +13,19 @@ h1{
     gap: 2rem ; 
     padding: 2rem;
 }
-
-/* overlay */
-.overlay{
-    background-color: transparent;
-    top: 10rem;
+/* description */
+.desc{
+    display: flex;
+    justify-content: space-between;
 }
-.overlay-text{
-    background-color: rgba(0, 0, 0, 0.3);
+.play-btn{
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    cursor: pointer;
+}
+.play-btn:hover{
+    background-color: var(--accent);
     color: white;
+    border: 2px solid var(--accent);
 }
