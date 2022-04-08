@@ -55,3 +55,13 @@ main{
   font-family: var(--font);
   color: var(--primary);
 }
+/* page not found */
+.page{
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page img{
+  width: 300px; 
+}
