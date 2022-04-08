@@ -65,3 +65,7 @@ main{
 .page img{
   width: 300px; 
 }
+/* fab button */
+.fab-primary{
+  margin-left: 1rem;
+}
