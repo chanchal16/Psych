@@ -1,16 +1,21 @@
 import React from 'react'
 import { useQuestions } from '../contexts/QuestionsContext';
 import '../styles/results.css';
+import { useNavigate } from "react-router-dom";
 
 export function Results() {
+  let navigate = useNavigate();
   const {quizState,questions} = useQuestions();
   const{score,results} = quizState;
-  console.log('results',quizState)
+
   return (
     <div className='result-container'>
       <h4 className='h6 center-text'>Your score:  
         <span className='score'>{score}/{questions.length * 10}</span>
       </h4> 
+      <button class="button primary-btn" onClick={()=>navigate('/categories')}>
+          Play again
+      </button>
       <div className='result-summary'>
         {
           results?.map(({ques,answer},index)=>(
