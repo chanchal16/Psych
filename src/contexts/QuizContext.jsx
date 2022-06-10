@@ -2,15 +2,17 @@ import React,{useState,createContext,useContext,useReducer} from 'react';
 import axios from 'axios';
 import { quizReducer } from '../reducers/quizReducer';
 
-const QuestionsContext = createContext()
+const QuizContext = createContext()
 
-function QuestionsContextProvider({children}) {
+function QuizContextProvider({children}) {
     const [quizState,quizDispatch] = useReducer(quizReducer,{
       questions:[],
       selectedOption:'',
       index:0,
       score:0,
-      results:[]})
+      results:[],
+      searchQuery:''
+    })
     const [categoryId,setCategoryId] = useState(null);
     const[questions,setQuestions] = useState([])
 
@@ -29,11 +31,11 @@ function QuestionsContextProvider({children}) {
   const providerObj = {categoryId,questions,setQuestions,quizDispatch,quizState,fetchQuestionsHandler}
   return (
     <div>
-        <QuestionsContext.Provider value={providerObj}>
+        <QuizContext.Provider value={providerObj}>
             {children}
-        </QuestionsContext.Provider>
+        </QuizContext.Provider>
     </div>
   )
 }
-const useQuestions = ()=>useContext(QuestionsContext)
-export {QuestionsContextProvider,useQuestions}
+const useQuiz = ()=>useContext(QuizContext)
+export {QuizContextProvider,useQuiz}
