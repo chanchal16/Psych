@@ -1,11 +1,11 @@
 import React from 'react'
-import { useQuestions } from '../contexts/QuestionsContext';
+import { useQuiz } from '../contexts/QuizContext';
 import '../styles/results.css';
 import { useNavigate } from "react-router-dom";
 
 export function Results() {
   let navigate = useNavigate();
-  const {quizState,questions} = useQuestions();
+  const {quizState,questions} = useQuiz();
   const{score,results} = quizState;
 
   return (

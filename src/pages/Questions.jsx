@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from 'react';
-import { useQuestions } from '../contexts/QuestionsContext';
+import { useQuiz } from '../contexts/QuizContext';
 import '../styles/quiz.css';
 import { decodeHTML } from '../Utils/decode';
 import { Link } from 'react-router-dom';
 
 export function Questions() {
-  const {quizState,quizDispatch,questions,setQuestions} = useQuestions()
+  const {quizState,quizDispatch,questions,setQuestions} = useQuiz()
   const{index,score,selectedOption} = quizState
   const[options,setOptions] = useState([]);
   
