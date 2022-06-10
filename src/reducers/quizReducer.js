@@ -9,6 +9,8 @@ const quizReducer = (state,{type,payload})=>{
                 index:state.index < 9 && state.index +1,
                 results:[...state.results,{ques:payload?.ques,answer:payload?.answer}]
             };
+        case 'SEARCH':
+            return {...state, searchQuery:payload}
         case 'GET_SCORE':
             return {
                 ...state,
@@ -17,6 +19,8 @@ const quizReducer = (state,{type,payload})=>{
             };
         case 'GET_RESULTS':
             return{...state, results:[...state.results,{ques:payload?.ques,answer:payload?.answer}]}
+        case 'CLEAR':
+            return {...state,searchQuery:''}
         default:
             return state
     }
