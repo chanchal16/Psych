@@ -13,6 +13,23 @@
 .menu-icon{
     padding: 0;
 }
+/* search */
+.search-form{
+    background-color: white;
+}
+.search{
+    padding: 0.4rem;
+    outline: none;
+    border: none;
+}
+.search-icon{
+    vertical-align: middle;
+    padding: 0.3rem;
+}
+.search-icon:hover{
+    background-color: var(--primary);
+    color: white;
+}
 .list-items{
     vertical-align: middle;
     margin:0 0.8rem;
