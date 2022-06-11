@@ -29,6 +29,14 @@
     background-color: var(--danger);
     color: white;
 }
+/* buttons */
+.btns-div{
+    margin: auto;
+    width: 77%;
+    display: flex;
+    justify-content: space-between;
+}
 .save{
     margin-left: 84%;
+    margin: 0;
 }
