@@ -2,9 +2,11 @@ import React,{useState,useEffect} from 'react';
 import { useQuiz } from '../contexts/QuizContext';
 import '../styles/quiz.css';
 import { decodeHTML } from '../Utils/decode';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import { QuizTimer } from '../components/QuizTimer';
 
 export function Questions() {
+  const navigate = useNavigate()
   const {quizState,quizDispatch,questions,setQuestions} = useQuiz()
   const{index,score,selectedOption} = quizState
   const[options,setOptions] = useState([]);
@@ -49,14 +51,14 @@ export function Questions() {
           ques:questions[index]?.question,
           answer: option
         }});
-      }, 1000);
+      }, 500);
     }
   }
 
    useEffect(() => {
     getOptions()
    }, [index,questions])
-   
+  //  check which option was selected
    const checkOption = (option)=>{
      if(selectedOption === option && option === questions[index]?.correct_answer){
        return 'correct'
@@ -68,7 +70,7 @@ export function Questions() {
        return 'correct'
      }
    }
-
+// save the result
   const saveResults = ()=>{
     if(index +1 <= questions?.length){
       quizDispatch({
@@ -80,11 +82,22 @@ export function Questions() {
       })
     }
   }
+  // quit handler
+  const quitHandler = ()=>{
+    quizDispatch({type:'QUIT'})
+    navigate('/categories')
+  }
   return (
     <div className='ques-container'>
       <div className='ques-heading'>
         <h1 className='text-md'>Q.{index +1}</h1>
         <span className='text-md'>score: {score}</span>
+        {/* {
+          questions.length > 0 &&
+          <h4>
+           00 : <QuizTimer updateQuestion={handleNextQuestion} currentQuestion={questions[index]?.question} seconds={15}/>
+          </h4>
+        } */}
       </div>
       {
         <div className='question-div'>         
@@ -99,14 +112,17 @@ export function Questions() {
               ))
             }
           </ul>
-          {index >= questions?.length -1 ? (
-            <Link to='/results'>
-              <button className='button primary-btn save' onClick={()=>saveResults()}>
-                Save 
-              </button>
-            </Link> 
-            ):null
-          }         
+          <div className='btns-div'>
+            <button className='button play-btn' onClick={quitHandler}>Quit</button>
+            {index >= questions?.length -1 ? (
+              <Link to='/results'>
+                <button className='button primary-btn save' onClick={()=>saveResults()}>
+                  Save 
+                </button>
+              </Link> 
+              ):null
+            } 
+          </div>        
         </div>
       }
     </div>
