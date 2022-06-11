@@ -19,6 +19,8 @@ const quizReducer = (state,{type,payload})=>{
             };
         case 'GET_RESULTS':
             return{...state, results:[...state.results,{ques:payload?.ques,answer:payload?.answer}]}
+        case 'QUIT':
+            return {...state, questions:[],index:0,score:0}
         case 'CLEAR':
             return {...state,searchQuery:''}
         default:
