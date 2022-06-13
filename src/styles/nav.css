@@ -34,3 +34,6 @@
     vertical-align: middle;
     margin:0 0.8rem;
 }
+.list-items button {
+    margin: 0;
+}

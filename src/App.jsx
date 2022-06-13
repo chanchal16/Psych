@@ -1,15 +1,19 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import {Navbar,Footer} from './components'
-import { Categories,Rules,Questions, Results, Home, PageNotFound } from './pages';
+import { Categories,Rules,Questions, Results, Home, PageNotFound, Login, Signup } from './pages';
+import { useAuth } from './contexts/AuthContext';
 
 function App() {
+  const {userData} = useAuth()
   return (
     <div className="App">
-      <Navbar/>
+      {userData.email && <Navbar/>}
       <main>
         <Routes>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/' element={<Login/>}/>
+          <Route path='signup' element={<Signup/>}/>
+          <Route path='/home' element={<Home/>}/>
           <Route path='categories' element={<Categories/>} />
           <Route path='rules' element={<Rules/>}/>
           <Route path='questions' element={<Questions/>}/>

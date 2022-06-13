@@ -1,0 +1,28 @@
+.form-container{
+    padding: 0 1rem;
+}
+.form{
+    max-width: 400px;
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+}
+.form-heading{
+    color: var(--primary);
+}
+/* button */
+.form .btn{
+    width: 80%;
+}
+.secondary-btn{
+    background-color: #353130;
+}
+.secondary-btn:hover{
+    background-color: var(--dark);
+}
