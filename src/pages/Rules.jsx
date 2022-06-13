@@ -1,10 +1,11 @@
 import React from 'react'
 import { rules } from '../Utils/RulesData'
-import '../styles/rules.css'
+import '../styles/rules.css';
+import { Link } from 'react-router-dom';
 
 export function Rules() {
   return (
-    <div>
+    <div style={{margin:'2rem'}}>
         <h1 className='center-text h5'>Rules to follow!</h1>
         <div className='rules-container'>
             {
@@ -14,6 +15,7 @@ export function Rules() {
                     </ul>
                 ))
             }
+            <Link to='/questions' className='button play-btn'>start</Link>
         </div>
     </div>
   )
