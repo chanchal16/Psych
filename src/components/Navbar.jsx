@@ -23,9 +23,14 @@ export function Navbar() {
     () => debounce(searchQuizByCategory,1000),
   [quizState.searchQuery]);
 
+  const logoutHandler = ()=>{
+    localStorage.removeItem('psychuser')
+    navigate('/')
+  }
+
   return (
     <div>
-        <header class="navbars">
+        <header className="navbars">
           <Link to=''  className="menu-icon">
             <img src={spikes} width="40px" height="40px" alt="logo" />
           </Link>
@@ -36,12 +41,15 @@ export function Navbar() {
             <form onSubmit={handleSearch} className='search-form'>
               <input type='search' className='search' placeholder='search'
                 onChange={debouncedChangeHandler} />
-              <span className='search-icon gray'><i class="fas fa-search fa-sm"></i> </span>
+              <span className='search-icon gray'><i className="fas fa-search fa-sm"></i> </span>
             </form>
             <li className="list-items">
-            <Link to='/rules' class="secondary-link">
+            <Link to='/rules' className="secondary-link">
               Guidelines
             </Link>
+            </li>
+            <li className="list-items">
+              <button onClick={logoutHandler} className='button primary-btn'>Logout</button>
             </li>
           </nav>
         </header>
