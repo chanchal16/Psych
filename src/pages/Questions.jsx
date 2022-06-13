@@ -3,7 +3,7 @@ import { useQuiz } from '../contexts/QuizContext';
 import '../styles/quiz.css';
 import { decodeHTML } from '../Utils/decode';
 import { Link,useNavigate } from 'react-router-dom';
-import { QuizTimer } from '../components/QuizTimer';
+// import { QuizTimer } from '../components/QuizTimer';
 
 export function Questions() {
   const navigate = useNavigate()
