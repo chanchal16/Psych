@@ -23,7 +23,7 @@ export function CategoryCard({id,name,img,description}) {
               </div>
               <div className='desc'>
                 <span>{description}</span>
-                <Link to='/questions'><button onClick={()=>quizDispatch({type:'CLEAR'})} className='button play-btn'>Play</button></Link>
+                <Link to='/rules'><button onClick={()=>quizDispatch({type:'CLEAR'})} className='button play-btn'>Play</button></Link>
               </div>
             </div>                   
         </div> 
