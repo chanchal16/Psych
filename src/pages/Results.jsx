@@ -13,13 +13,13 @@ export function Results() {
       <h4 className='h6 center-text'>Your score:  
         <span className='score'>{score}/{questions.length * 10}</span>
       </h4> 
-      <button class="button primary-btn" onClick={()=>navigate('/categories')}>
+      <button className="button primary-btn" onClick={()=>navigate('/categories')}>
           Play again
       </button>
       <div className='result-summary'>
         {
           results?.map(({ques,answer},index)=>(
-            <div className='result-card'>
+            <div className='result-card' key={index}>
               <h5 className='text-md'>Q.{index+1} {ques}</h5>
               <h5 className={`option ${questions[index]?.correct_answer ===answer? 'correct' : 'wrong'}`}>
                 Your ans: {answer}

@@ -15,13 +15,13 @@ export function Categories() {
   return (
     <div >
         <h1 className='center-text h5'>Select by Category</h1>
-        <button class="button fab-primary" onClick={()=>navigate('/')}>
-          <i class="fas fa-arrow-left"></i>
+        <button className="button fab-primary" onClick={()=>navigate('/')}>
+          <i className="fas fa-arrow-left"></i>
         </button>
         <div className='categories-container'>
         {
             searchedQuizes?.map(category=>(             
-                <CategoryCard id={category.id} img={category.img} name={category.name} 
+                <CategoryCard key={category.id} id={category.id} img={category.img} name={category.name} 
                 description={category.description} />           
             ))
         }

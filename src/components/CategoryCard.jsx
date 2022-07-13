@@ -11,9 +11,9 @@ export function CategoryCard({id,name,img,description}) {
   }, [categoryId])
 
   return (
-        <div class="card category-card" key={id} onClick={()=>fetchQuestionsHandler(id)}>
-            <div class="card-media">
-                <img class="vc-image"
+        <div className="card category-card" key={id} onClick={()=>fetchQuestionsHandler(id)}>
+            <div className="card-media">
+                <img className="vc-image"
                 src={img}
                 alt="cover" />
             </div>

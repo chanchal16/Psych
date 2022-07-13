@@ -10,8 +10,8 @@ export function Rules() {
         <div className='rules-container'>
             {
                 rules.map(rule=>(
-                    <ul class="list stacked-list" key={rule.id}>
-                        <li class="stacked-list-item">{rule.rule}</li>
+                    <ul className="list stacked-list" key={rule.id}>
+                        <li className="stacked-list-item">{rule.rule}</li>
                     </ul>
                 ))
             }
