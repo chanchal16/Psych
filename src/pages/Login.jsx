@@ -34,12 +34,12 @@ export function Login() {
                 <div className="input-grp">
                     <label>Email</label>
                     <input type="email" placeholder="abc@gmail.com" className="input-field" value={userData.email}
-                    onChange={(e)=>setUserData((form)=>({...form,email:e.target.value}))} />
+                    onChange={(e)=>setUserData((form)=>({...form,email:e.target.value}))} required />
                 </div>
                 <div className="input-grp">
                     <label>Password</label>
                     <input type="password" className="input-field" value={userData.password}
-                    onChange={(e)=>setUserData((form)=>({...form,password:e.target.value}))} />
+                    onChange={(e)=>setUserData((form)=>({...form,password:e.target.value}))} required />
                 </div>
                 <button type='submit' className="btn primary-btn">Login</button>
                 <button className="btn secondary-btn" onClick={()=>HandleLogin()}>Guest Login</button>
