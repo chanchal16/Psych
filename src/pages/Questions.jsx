@@ -3,13 +3,14 @@ import { useQuiz } from '../contexts/QuizContext';
 import '../styles/quiz.css';
 import { decodeHTML } from '../Utils/decode';
 import { Link,useNavigate } from 'react-router-dom';
-// import { QuizTimer } from '../components/QuizTimer';
 
 export function Questions() {
   const navigate = useNavigate()
+  let intervalId;
   const {quizState,quizDispatch,questions,setQuestions} = useQuiz()
   const{index,score,selectedOption} = quizState
   const[options,setOptions] = useState([]);
+  const [timer, setTimer] = useState(10);
   
   // decode html sent from api
   const encodedQuestions = quizState.questions;
@@ -42,22 +43,43 @@ export function Questions() {
       }   
   }
 
+  // handle next ques
   const handleNextQuestion = (option)=>{
     quizDispatch({type:'GET_SCORE',payload:option})
     // increase index if less than Qs length
-    if(index +1 < questions?.length){
-      setTimeout(() => {
+    if(index +1 < questions?.length){  
+      setTimer(10) 
+      setTimeout(() => {      
         quizDispatch({type:'GET_INDEX' ,payload:{
           ques:questions[index]?.question,
           answer: option
         }});
       }, 500);
     }
+    if(index === questions.length -1){
+      clearInterval(intervalId)
+    }
+    
   }
 
    useEffect(() => {
     getOptions()
    }, [index,questions])
+  
+  // set timer
+  useEffect(() => {
+     intervalId = setInterval(() => {
+        if(timer > 0){
+          setTimer((prev) => prev - 1)
+        }
+        if (timer === 0) {
+          handleNextQuestion(selectedOption);
+        }      
+     }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [timer,handleNextQuestion]);
+
   //  check which option was selected
    const checkOption = (option)=>{
      if(selectedOption === option && option === questions[index]?.correct_answer){
@@ -70,7 +92,7 @@ export function Questions() {
        return 'correct'
      }
    }
-// save the result
+  // save the result
   const saveResults = ()=>{
     if(index +1 <= questions?.length){
       quizDispatch({
@@ -91,13 +113,14 @@ export function Questions() {
     <div className='ques-container'>
       <div className='ques-heading'>
         <h1 className='text-md'>Q.{index +1}</h1>
+        <div className='score-container'>
         <span className='text-md'>score: {score}</span>
-        {/* {
-          questions.length > 0 &&
+        {questions.length > 0 &&
           <h4>
-           00 : <QuizTimer updateQuestion={handleNextQuestion} currentQuestion={questions[index]?.question} seconds={15}/>
+            00 : {timer < 10 ? "0" + timer : timer}
           </h4>
-        } */}
+        }
+        </div>
       </div>
       {
         <div className='question-div'>         
