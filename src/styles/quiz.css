@@ -8,6 +8,13 @@
     padding: 1rem 3rem;
     font-family: var(--font);
 }
+/* score containre */
+.score-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
 /* question div */
 .question-div{
     margin: auto;
